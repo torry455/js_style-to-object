@@ -12,7 +12,8 @@ function convertToObject(sourceString) {
     const stringWithoutSymbols = string.trim().replace(/;$/, '');
 
     if (stringWithoutSymbols.includes(':')) {
-      const [key, value] = stringWithoutSymbols.split(':');
+      const [key, ...rest] = stringWithoutSymbols.split(':');
+      const value = rest.join(':');
 
       acc[key.trim()] = value.trim();
     }
